@@ -1,30 +1,34 @@
-# UC8 – Generate Heatmap for Correlation Matrix
+# UC9 – Apply Advanced Plot Customization Techniques
 
-import seaborn as sns
 import matplotlib.pyplot as plt
-import pandas as pd
+import seaborn as sns
 
-# Sample dataset
-data = {
-    "Hours_Studied": [1, 2, 3, 4, 5],
-    "Sleep_Hours": [7, 6, 6, 5, 5],
-    "Practice_Tests": [1, 2, 2, 3, 4],
-    "Scores": [50, 55, 65, 70, 80]
-}
-
-df = pd.DataFrame(data)
-
-# Compute correlation matrix
-correlation = df.corr()
+# Sample data
+days = [1, 2, 3, 4, 5]
+sales = [100, 150, 130, 170, 160]
+profit = [20, 30, 25, 35, 40]
 
 # Apply seaborn style
-sns.set_theme(style="white")
+sns.set_theme(style="darkgrid")
 
-# Create heatmap
-sns.heatmap(correlation, annot=True, cmap="coolwarm", linewidths=0.5)
+# Plot multiple lines
+plt.plot(days, sales, marker='o', label="Sales")
+plt.plot(days, profit, marker='s', label="Profit")
 
-# Title
-plt.title("Feature Correlation Heatmap")
+# Titles and labels
+plt.title("Sales and Profit Trend")
+plt.xlabel("Days")
+plt.ylabel("Amount")
+
+# Add legend
+plt.legend()
+
+# Add grid
+plt.grid(True)
+
+# Annotate key point
+plt.annotate("Peak Sales", xy=(4, 170), xytext=(3, 180),
+             arrowprops=dict(facecolor='black', shrink=0.05))
 
 # Show plot
 plt.show()
