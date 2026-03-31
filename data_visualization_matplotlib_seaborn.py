@@ -1,19 +1,21 @@
-# UC1 – Initialize Data Visualization Environment
+# UC2 – Implement Line Graph for Trend Analysis
 
 import matplotlib.pyplot as plt
-import seaborn as sns
 
-# Sample data
-x = [1, 2, 3, 4]
-y = [10, 20, 15, 25]
+# Sample time-series data (e.g., days vs sales)
+days = [1, 2, 3, 4, 5]
+sales = [100, 150, 130, 170, 160]
 
-# Basic plot
-plt.plot(x, y)
+# Create line plot
+plt.plot(days, sales, marker='o', linestyle='-', linewidth=2)
 
-# Add title and labels
-plt.title("Basic Line Plot - Setup Validation")
-plt.xlabel("X-axis")
-plt.ylabel("Y-axis")
+# Labels and title
+plt.title("Sales Trend Over Time")
+plt.xlabel("Days")
+plt.ylabel("Sales")
 
-# Show plot
+# Grid for better readability
+plt.grid(True)
+
+# Display plot
 plt.show()
