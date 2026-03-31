@@ -1,21 +1,25 @@
-# UC2 – Implement Line Graph for Trend Analysis
+# UC3 – Build Enhanced Line Plot with Seaborn Styling
 
+import seaborn as sns
 import matplotlib.pyplot as plt
+import pandas as pd
 
-# Sample time-series data (e.g., days vs sales)
-days = [1, 2, 3, 4, 5]
-sales = [100, 150, 130, 170, 160]
+# Sample dataset
+data = pd.DataFrame({
+    "Day": [1, 2, 3, 4, 5],
+    "Sales": [100, 150, 130, 170, 160]
+})
 
-# Create line plot
-plt.plot(days, sales, marker='o', linestyle='-', linewidth=2)
+# Apply seaborn theme
+sns.set_theme(style="darkgrid")
+
+# Create enhanced line plot
+sns.lineplot(data=data, x="Day", y="Sales", marker='o', color='b')
 
 # Labels and title
-plt.title("Sales Trend Over Time")
-plt.xlabel("Days")
+plt.title("Sales Trend Analysis (Seaborn Styled)")
+plt.xlabel("Day")
 plt.ylabel("Sales")
 
-# Grid for better readability
-plt.grid(True)
-
-# Display plot
+# Show plot
 plt.show()
