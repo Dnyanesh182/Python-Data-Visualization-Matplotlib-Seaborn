@@ -1,22 +1,22 @@
-# UC5 – Analyze Data Distribution using Histogram
+# UC6 – Visualize Proportions using Pie Chart
 
 import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
 
-# Generate sample numerical data (e.g., exam scores)
-data = np.random.normal(loc=70, scale=10, size=100)
+# Sample data (e.g., market share)
+labels = ["Product A", "Product B", "Product C", "Product D"]
+sizes = [40, 25, 20, 15]
 
-# Apply seaborn style
-sns.set_theme(style="whitegrid")
+# Optional explode to highlight a segment
+explode = (0.1, 0, 0, 0)
 
-# Create histogram with KDE (density curve)
-sns.histplot(data, bins=10, kde=True, color='blue')
+# Create pie chart
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', explode=explode, startangle=90)
 
-# Labels and title
-plt.title("Distribution of Scores")
-plt.xlabel("Scores")
-plt.ylabel("Frequency")
+# Equal aspect ratio ensures circle
+plt.axis('equal')
+
+# Title
+plt.title("Market Share Distribution")
 
 # Show plot
 plt.show()
