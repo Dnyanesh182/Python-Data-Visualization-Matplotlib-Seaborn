@@ -1,25 +1,22 @@
-# UC4 – Design Bar Chart for Categorical Comparison
+# UC5 – Analyze Data Distribution using Histogram
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
-# Sample categorical data
-categories = ["Product A", "Product B", "Product C", "Product D"]
-sales = [120, 150, 90, 180]
+# Generate sample numerical data (e.g., exam scores)
+data = np.random.normal(loc=70, scale=10, size=100)
 
 # Apply seaborn style
 sns.set_theme(style="whitegrid")
 
-# Create bar chart
-plt.bar(categories, sales, color=['blue', 'green', 'orange', 'red'])
+# Create histogram with KDE (density curve)
+sns.histplot(data, bins=10, kde=True, color='blue')
 
 # Labels and title
-plt.title("Product Sales Comparison")
-plt.xlabel("Products")
-plt.ylabel("Sales")
-
-# Rotate labels for readability (if needed)
-plt.xticks(rotation=30)
+plt.title("Distribution of Scores")
+plt.xlabel("Scores")
+plt.ylabel("Frequency")
 
 # Show plot
 plt.show()
