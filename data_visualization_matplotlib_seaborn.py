@@ -1,25 +1,25 @@
-# UC3 – Build Enhanced Line Plot with Seaborn Styling
+# UC4 – Design Bar Chart for Categorical Comparison
 
-import seaborn as sns
 import matplotlib.pyplot as plt
-import pandas as pd
+import seaborn as sns
 
-# Sample dataset
-data = pd.DataFrame({
-    "Day": [1, 2, 3, 4, 5],
-    "Sales": [100, 150, 130, 170, 160]
-})
+# Sample categorical data
+categories = ["Product A", "Product B", "Product C", "Product D"]
+sales = [120, 150, 90, 180]
 
-# Apply seaborn theme
-sns.set_theme(style="darkgrid")
+# Apply seaborn style
+sns.set_theme(style="whitegrid")
 
-# Create enhanced line plot
-sns.lineplot(data=data, x="Day", y="Sales", marker='o', color='b')
+# Create bar chart
+plt.bar(categories, sales, color=['blue', 'green', 'orange', 'red'])
 
 # Labels and title
-plt.title("Sales Trend Analysis (Seaborn Styled)")
-plt.xlabel("Day")
+plt.title("Product Sales Comparison")
+plt.xlabel("Products")
 plt.ylabel("Sales")
+
+# Rotate labels for readability (if needed)
+plt.xticks(rotation=30)
 
 # Show plot
 plt.show()
