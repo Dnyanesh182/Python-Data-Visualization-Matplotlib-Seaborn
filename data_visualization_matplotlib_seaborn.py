@@ -1,25 +1,30 @@
-# UC7 – Develop Scatter Plot for Correlation Analysis
+# UC8 – Generate Heatmap for Correlation Matrix
 
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
 
-# Sample data (e.g., hours studied vs exam scores)
-hours = [1, 2, 3, 4, 5, 6, 7, 8]
-scores = [35, 40, 50, 55, 65, 70, 75, 85]
+# Sample dataset
+data = {
+    "Hours_Studied": [1, 2, 3, 4, 5],
+    "Sleep_Hours": [7, 6, 6, 5, 5],
+    "Practice_Tests": [1, 2, 2, 3, 4],
+    "Scores": [50, 55, 65, 70, 80]
+}
+
+df = pd.DataFrame(data)
+
+# Compute correlation matrix
+correlation = df.corr()
 
 # Apply seaborn style
-sns.set_theme(style="whitegrid")
+sns.set_theme(style="white")
 
-# Create scatter plot
-plt.scatter(hours, scores)
+# Create heatmap
+sns.heatmap(correlation, annot=True, cmap="coolwarm", linewidths=0.5)
 
-# Labels and title
-plt.title("Study Hours vs Exam Scores")
-plt.xlabel("Hours Studied")
-plt.ylabel("Exam Scores")
-
-# Grid for readability
-plt.grid(True)
+# Title
+plt.title("Feature Correlation Heatmap")
 
 # Show plot
 plt.show()
